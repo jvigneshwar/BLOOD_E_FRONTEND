@@ -6,38 +6,45 @@ import './Display.css'
 const Display = () => {
     const { bloodGroup, city } = useParams();
     const [Details, setDetails] = useState();
+    const [Loading,setLoading] = useState(true);
     useEffect(() => {
-        axios.get('http://localhost:4000/showDetails', {
+        axios.get(`${process.env.REACT_APP_API}/showDetails`, {
             headers: {
                 bloodGroup,
                 city,
             }
         })
-            .then(data => { setDetails(data.data); console.log(data.data); })
-            .catch(err => console.log(err))
+        .then(data => { setDetails(data.data); setLoading(false)})
+        .catch(err => console.log(err))
     }, [bloodGroup, city])
     return (
         <div className='Display'>
-            <p>{bloodGroup}</p>
-            <p>{city}</p>
-            <table>
-                <tr>
-                    <th>name</th>
-                    <th>blood group</th>
-                    <th>city</th>
-                    <th>mobile no</th>
-                </tr>
+            <div className='search-details'>
+                <p className='blood-group'>{bloodGroup}</p>
+                <p className='blood-group'>{city}</p>
+            </div>
+            { Loading ? <div className='Loading'>
+                            <div className="ele"></div>
+                            <div className="ele"></div>
+                            <div className="ele"></div>
+                            <div className="ele"></div>
+                            <div className="ele"></div>
+                            <div className="ele"></div>
+                        </div> :
+            <div className='show-data'>
                 {Details && Details.map((item) => {
                     return (
-                        <tr>
-                            <td>{item.name}</td>
-                            <td>{item.bloodGroup}</td>
-                            <td>{item.city}</td>
-                            <td>{item.mobileNo}</td>
-                        </tr>
+                        <div className='card'>
+                            <div className='card-name'>{item.name}</div>
+                            <div className='card-group'>{item.bloodGroup}</div>
+                            <div className='card-city'>{item.city}</div>
+                            <div className='card-no'>{item.mobileNo}</div>
+                            <a className='card-call' href={`tel:${item.mobileNo}`}>Call</a>
+                        </div>
                     )
                 })}
-            </table>
+            </div>
+            }
         </div>
     )
 }

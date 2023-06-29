@@ -4,8 +4,12 @@ import Home from "./pages/Home";
 import './App.css';
 import Display from "./pages/Display";
 import Nav from "./components/Nav";
+import { useEffect } from "react";
 
 function App() {
+  useEffect(()=>{
+    document.documentElement.style.setProperty('--vh', window.innerHeight+"px");
+  },[])
   return (
     <>
       <Nav/>

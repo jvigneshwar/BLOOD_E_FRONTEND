@@ -2,3 +2,133 @@
     width: 85%;
     height: 87%;
 }
+
+.search-details{
+    width: 100%;
+    display: flex;
+    height: 13%;
+    gap: 200px;
+    align-items: center;
+}
+
+.blood-group{
+    font-family: 'Inter';
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.show-data{
+    width: 100%;
+    height: 87%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow-y: scroll;
+}
+
+.show-data::-webkit-scrollbar{
+    display: none;
+}
+
+
+
+.card{
+    font-family: 'Inter';
+    width: 99%;
+    height: 12%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid rgba(255, 0, 0, 0.7);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.card-name{
+    width: 200px;
+    margin-left: 50px;
+}
+
+.card-call{
+    text-decoration: none;
+    background-color: rgba(255, 0, 0, 0.7);
+    height: 100%;
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+    color: white;
+    letter-spacing: 1px;
+    border-left: 2px solid rgba(255, 0, 0, 0.7);
+    transition: .3s;
+}
+
+.card-call:hover{
+    color: red;
+    background-color: white;
+}
+
+
+.Loading{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;  
+}
+
+.ele{
+    opacity: .8;
+    width: 100%;
+    min-height: 12%;
+    border-radius: 15px;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeHolderShimmer;
+    animation-timing-function: linear;
+    background: fff;
+    background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+    position: relative;
+    -webkit-backface-visibility: hidden;
+}
+
+@keyframes placeHolderShimmer {
+    0% {
+      background-position: -30vw 0
+    }
+    100% {
+      background-position: 30vw 0
+    }
+  }
+
+@media (min-width: 320px) and (max-width:480px) {
+    .search-details{
+        justify-content: space-around;
+    }
+    .card{
+        display: grid;
+        grid-template-columns: 35% 35% 25%;
+        grid-template-rows: 50% 50%;
+        height: 13%;
+    }
+
+    .card-call{
+        grid-column: 3/4;
+        width: 100%;
+        grid-row: 1/5 ;
+    }
+
+    .card-name{
+        width: fit-content;
+        margin-left: 0;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .card-group,.card-city,.card-no{
+        align-self: center;
+        justify-self: center;
+    }
+}

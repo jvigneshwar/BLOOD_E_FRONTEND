@@ -23,7 +23,7 @@ const Register = () => {
   }
 
   const submit = () => {
-    axios.post('http://localhost:4000/register',
+    axios.post(`${process.env.REACT_APP_API}/register`,
       {
         name,
         bloodGroup,
@@ -31,8 +31,8 @@ const Register = () => {
         mobileNo
       }
     )
-      .then((data) => { console.log(data) })
-      .catch((err) => { console.log(err) })
+    .then((data) => { window.alert("Registration Sucess") })
+    .catch((err) => { window.alert("mobile no already exist") })
   }
 
   return (

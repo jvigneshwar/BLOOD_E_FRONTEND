@@ -84,3 +84,24 @@
     color: red;
     background-color: transparent;
 }
+
+@media (min-width: 320px) and (max-width:480px) {
+    .home-form{
+        width: 85%;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2,1fr);
+    }
+    .search{
+        transform: translateX(30px);
+        
+        width: 300px;
+    }
+
+    .left{
+        width: 100%;
+    }
+
+    .getl{
+        font-size: 13px;
+    }
+}
