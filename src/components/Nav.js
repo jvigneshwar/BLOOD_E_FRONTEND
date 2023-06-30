@@ -11,8 +11,8 @@ const Nav = () => {
       <div className='logo'>BLOOD<span className='e'>E</span></div>
       {width>320 && width<480 ? <Icon id='toogle' icon="ri:menu-3-line" onClick={()=>{setToogle(!toogle)}}/> : null}
       {toogle ? <ul className='links'>
-        <li><Link to='/' onClick={()=>{setToogle(false)}}>Home</Link></li>
-        <li><Link to='/Register' onClick={()=>{setToogle(false)}}>Register</Link></li>
+        <li><Link to='/' onClick={()=>{ width>320 && width<480 ? setToogle(false) : console.log("")}}>Home</Link></li>
+        <li><Link to='/Register' onClick={()=>{width>320 && width<480 ? setToogle(false) : console.log("")}}>Register</Link></li>
       </ul> : null}
     </nav>
   )
