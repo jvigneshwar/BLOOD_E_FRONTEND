@@ -33,8 +33,8 @@ const Home = () => {
         <div className="left">
           <select className='select-box' onChange={(e)=>{setBloodGroup(e.target.value)}}>
             {
-              bloods.map((item)=>{
-                return(<option value={item}>{item}</option>)
+              bloods.map((item,index)=>{
+                return(<option key={index} value={item}>{item}</option>)
               })
             }
           </select>

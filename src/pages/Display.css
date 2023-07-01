@@ -109,9 +109,9 @@
     }
     .card{
         display: grid;
-        grid-template-columns: 35% 35% 25%;
-        grid-template-rows: 50% 50%;
-        height: 13%;
+        grid-template-columns: 35% 45% 20%;
+        grid-template-rows: 1fr;
+        height: 11%;
     }
 
     .card-call{
@@ -120,6 +120,12 @@
         grid-row: 1/5 ;
     }
 
+    .card-call svg{
+        width: 1.7rem !important;
+        height: 1.7rem !important;
+    }
+
+
     .card-name{
         width: fit-content;
         margin-left: 0;
@@ -127,8 +133,11 @@
         justify-self: center;
     }
 
-    .card-group,.card-city,.card-no{
+    .card-group,.card-city{
+        display: none;
+    }
+    .card-no{
         align-self: center;
-        justify-self: center;
+        justify-self: center;    
     }
 }

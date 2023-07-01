@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import './Display.css'
+import { Icon } from '@iconify/react';
 
 const Display = () => {
     const { bloodGroup, city } = useParams();
@@ -32,14 +33,14 @@ const Display = () => {
                             <div className="ele"></div>
                         </div> :
             <div className='show-data'>
-                {Details && Details.map((item) => {
+                {Details && Details.map((item,index) => {
                     return (
-                        <div className='card'>
+                        <div className='card' key={index}>
                             <div className='card-name'>{item.name}</div>
                             <div className='card-group'>{item.bloodGroup}</div>
                             <div className='card-city'>{item.city}</div>
                             <div className='card-no'>{item.mobileNo}</div>
-                            <a className='card-call' href={`tel:${item.mobileNo}`}>Call</a>
+                            <a className='card-call' href={`tel:${item.mobileNo}`}><Icon icon="material-symbols:call" /></a>
                         </div>
                     )
                 })}
